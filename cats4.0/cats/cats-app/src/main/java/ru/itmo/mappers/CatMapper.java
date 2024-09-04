@@ -1,0 +1,19 @@
+package ru.itmo.mappers;
+
+import lombok.experimental.UtilityClass;
+import ru.itmo.models.Cat;
+import ru.itmo.models.CatDto;
+
+@UtilityClass
+public class CatMapper {
+    public static CatDto asDto(Cat cat) {
+        return CatDto.builder()
+                .id(cat.getId())
+                .name(cat.getName())
+                .breed(cat.getBreed().name())
+                .color(cat.getColor().name())
+                .birthDate(cat.getBirthDate())
+                .ownerId(cat.getOwnerId())
+                .build();
+    }
+}
